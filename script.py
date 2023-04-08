@@ -1,48 +1,56 @@
-def linha(cont = 60):
-    print('-' * cont)
 
-def interface():
-    vetorInterface = [
-        "Olá, bem-vindo(a) ao Gerador de Senhas",
-        "Escolha os tipos de Caracteres desejados:"
-    ]
-    vetorOptions = [
-        "Opções:",
-        "1 - Apenas númerico",
-        "2 - Apenas letras minúsculas",
-        "3 - Apenas letras maiúsculas",
-        "4 - Apenas caracteres especiais",
-        "5 - Tudo"
-        
-    ]
+from random import randint
+from time   import sleep
 
-    for item in vetorInterface:
-        linha()
-        print(f"{item:^60}")
+def line(par=60):
+        print('-'*par)
 
-    for item in vetorOptions:
-        print(item)
+vetor = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','1','2','3','4','5','6','7','8','9','10','!','@','#','$','%','¨','&','*','(',')','?','/']
+# for a in range(1, 11):
+#     print(f"\'{a}\'", end=',')
 
-    while True:
-        try:
-            valor = int(input('Sua opção: '))
-        except (ValueError, TypeError):
-            print('Informe um valor válido')
-        
-        if 1 < valor < 5: 
-            break
-        else:
-            continue
+line()
+print(f'{"Welcome to our System":^60}')
+line()
+
+print('How many characteres would you like on your password?')
+
+while True:
+    num = str(input("How many? "))
+    if(num.isalnum == True):
+        pass
+    else:
+        while num.isalnum == False:
+            num = str(input("How many? "))
+            if(num.isalnum == True):
+                break
+    break
+
+print('Generating your password in ', end='')
+for c in range(1, 4):
+    sleep(1)
+    print(c, end='')
+    for c in range(1, 4):
+        sleep(0.5)
+        print('.', end='')
+    sleep(1.3)
+    print(' ', end='')
+print()
+
+sleep(1)
+print('Your password is: \"', end='')
+for c in range(0, num):
+    print(vetor[randint(0, len(vetor))], end='')
+print('\"')
 
 
 
-    return valor
-  
-        
+def leaving():
+    print('Thanks for use our system', end='')
+    for c in range(0, 3):
+            sleep(1.7)
+            print('.', end='')
+    print()
 
-
-interface()
-
-# "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-#         "abcdefghijklmnopqrstuvwxyz",
-#         "1234567890"
+line()
+leaving()
